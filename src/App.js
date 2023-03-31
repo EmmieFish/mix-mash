@@ -1,3 +1,4 @@
+import { Col, Row, Container } from 'reactstrap';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/HomePage';
@@ -6,23 +7,35 @@ import AccountPage from './pages/AccountPage';
 import AboutPage from './pages/AboutPage';
 import LinksPage from './pages/LinksPage';
 import Header from './components/Header';
-import Footer from './components/Footer';
+import Sidebar from './components/Sidebar';
 
 
 
 function App() {
     return (
         <div className="App">
-            <Header />
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="mix-mash" element={<MixMashAppPage />} />
-                <Route path="account" element={<AccountPage />} />
-                <Route path="about" element={<AboutPage />} />
-                <Route path="links" element={<LinksPage />} />
-            </Routes>
-            {/* eventually make this be able to swap between the footer or the sidebar based on page size  */}
-            <Footer />
+            <Container fluid>
+                <Row>
+                    <Header />
+                </Row>
+                <Row>
+                    <Col xs="3" sm="2" className='sidebar-col'>
+                        <Sidebar />
+                    </Col>
+                    <Col>
+                        <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route
+                                path="mix-mash"
+                                element={<MixMashAppPage />}
+                            />
+                            <Route path="account" element={<AccountPage />} />
+                            <Route path="about" element={<AboutPage />} />
+                            <Route path="links" element={<LinksPage />} />
+                        </Routes>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 }
