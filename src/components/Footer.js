@@ -33,12 +33,12 @@ const Footer = () => {
                         >
                             <i className='fa fa-instagram' />
                         </a>{' '}
-                        <a
+                        <am
                             className='btn btn-social-icon btn-facebook'
                             href='http://www.facebook.com/'
                         >
                             <i className='fa fa-facebook' />
-                        </a>{' '}
+                        </am>{' '}
                         <a
                             className='btn btn-social-icon btn-twitter'
                             href='http://twitter.com/'
