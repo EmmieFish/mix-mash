@@ -10,7 +10,7 @@ import { Route, Routes } from "react-router-dom";
 const DesktopLayout = () => {
     return (
         <Row>
-            <Col xs="3" sm="2">
+            <Col xs="3" md='2'>
                 <Sidebar />
             </Col>
             <Col>
