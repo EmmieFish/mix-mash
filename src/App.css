@@ -47,6 +47,7 @@ h2 {
     transform: scaleX(-1) translate(10%, -25%);
     margin: auto;
     display: block;
+    z-index: 100;
 }
 
 .homeMashMascot {
@@ -78,10 +79,12 @@ h2 {
 
 .header-mix {
     position: absolute;
-    top: 0;
-    right: 0;
-    max-height: 25%;
+    top: -2%;
+    right: 4%;
+    max-height: 24%;
     max-width: 60%;
+    transform: scaleY(-1) rotate(14deg);
+    z-index: 100;
 }
 
 /* .row-content {
@@ -103,6 +106,7 @@ h2 {
     left: 0;
     max-width: 18%;
     max-height: 60%;
+    z-index: 100;
 }
 
 /* .sidebar-col {
