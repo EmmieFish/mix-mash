@@ -19,7 +19,7 @@ function App() {
                     <Header />
                 </Row>
                 <Row>
-                    <Col xs="3" sm="2" className='sidebar-col'>
+                    <Col xs="3" sm="2">
                         <Sidebar />
                     </Col>
                     <Col>

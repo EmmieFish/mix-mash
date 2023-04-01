@@ -24,7 +24,24 @@ h2 {
     color: #3046c5;
 }
 
+.homeWelcomeCard {
+    background-image: linear-gradient(to right, #160622, #160622, #160622, #160622, #400340, #042344, #160622);
+    color: rgb(255, 255, 255);
+    border: solid 1px white;
+}
+
+.homeInstructionCard {
+    background-image: linear-gradient(to right, #160622, #160622, #160622, #160622, #400340, #042344, #160622);
+    color: rgb(255, 255, 255);
+    outline: white;
+}
+
 .card-img-overlay .card-title {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card-img-overlay .card-body {
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -34,10 +51,6 @@ h2 {
     height: 15vh;
 }
 
-/* .navbar-brand {
-    max-width: 4rem;
-    margin-right: 2rem;
-} */
 
 .header img {
     height: 15vh;
@@ -54,13 +67,13 @@ h2 {
     background-color: #901cad00;
     background-image: linear-gradient(#160622, #3787dd, #c124b486, #510e5a00);
     height: 85vh;
-    max-width: 4rem;
+    /* max-width: 4rem; */
 }
 
-.sidebar-col {
+/* .sidebar-col {
     margin-left: 0;
     padding-left: 0;
-}
+} */
 
 .page-enter {
     opacity: 0;

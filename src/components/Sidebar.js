@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "reactstrap";
+import tempMash from "../app/assets/images/tempMash.png"
 
 const Sidebar = () => {
     return (
@@ -25,6 +26,7 @@ const Sidebar = () => {
                     </ul>
                 </Col>
             </Row>
+            <img style={{position: "fixed", bottom: "0", left: "0", maxWidth: "18%", maxHeight: "60%"}} src={tempMash} />
         </Container>
     );
 };
