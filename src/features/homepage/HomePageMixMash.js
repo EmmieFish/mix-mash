@@ -8,7 +8,10 @@ const HomePageMixMash = () => {
         <Container>
             <Row>
                 <Col xs="2">
-                    <img src={tempMix} />
+                    <img
+                        style={{ width: "150%", transform: "scaleX(-1)" }}
+                        src={tempMix}
+                    />
                 </Col>
                 <Col xs="8">
                     <Card className="text-center">
@@ -20,7 +23,10 @@ const HomePageMixMash = () => {
                     </Card>
                 </Col>
                 <Col xs="2">
-                    <img src={tempMash} />
+                    <img
+                        style={{ width: "150%", transform: "scaleX(-1)" }}
+                        src={tempMash}
+                    />
                 </Col>
             </Row>
         </Container>
