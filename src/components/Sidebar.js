@@ -26,7 +26,7 @@ const Sidebar = () => {
                     </ul>
                 </Col>
             </Row>
-            <img style={{position: "fixed", bottom: "0", left: "0", maxWidth: "18%", maxHeight: "60%"}} src={tempMash} />
+            <img className="sidebar-mash" src={tempMash} />
         </Container>
     );
 };

@@ -14,7 +14,7 @@ import Sidebar from './components/Sidebar';
 function App() {
     return (
         <div className="App">
-            <Container fluid>
+            <Container fluid className='no-padding'>
                 <Row>
                     <Header />
                 </Row>
