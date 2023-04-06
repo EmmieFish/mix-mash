@@ -6,43 +6,25 @@ import {
     Collapse,
     NavbarToggler,
     Nav,
-    NavItem
+    NavItem,
+    Container,
+    Row
 } from "reactstrap";
+import tempLogo from "../app/assets/images/tempLogo.jpg"
+import tempMix from "../app/assets/images/tempMix.png"
 
 
 const Header = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
-
     return (
-        <Navbar dark color='primary' sticky='top' expand='md'>
-            <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
-
-            <Collapse isOpen={menuOpen} navbar>
-                <Nav className="ms-auto" navbar>
-                    <NavItem>
-                        <NavLink className="nav-link" to='/'>
-                            <i className="fa fa-home fa-lg" /> Home
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink className="nav-link" to='/mix-mash'>
-                            <i className="fa fa-list fa-lg" /> Mix Mash
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink className="nav-link" to='/account'>
-                            <i className="fa fa-info fa-lg" /> Account
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink className="nav-link" to='/about-contact'>
-                            <i className="fa fa-address-card fa-lg" /> About and Contact
-                        </NavLink>
-                    </NavItem>
-                </Nav>
-            </Collapse>
-        </Navbar>
-    )
+        <Container className="header">
+            <Row>
+                <div>
+                    <img className="header-logo" src={tempLogo} />
+                    <img className="header-mix" src={tempMix} />
+                </div>
+            </Row>
+        </Container>
+    );
 }
 
 export default Header
