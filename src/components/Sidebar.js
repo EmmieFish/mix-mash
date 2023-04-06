@@ -1,32 +1,21 @@
-import { Link } from "react-router-dom";
+import SidebarLinks from "./SidebarLinks";
 import { Col, Row, Container } from "reactstrap";
-import tempMash from "../app/assets/images/tempMash.png"
+import tempMash from "../app/assets/images/tempMash.png";
+import tempLogo from "../app/assets/images/tempLogo.jpg";
+import useViewportHeight from "../utils/useViewportHeight";
 
 const Sidebar = () => {
+    const viewHeight = useViewportHeight();
+    const breakpoint = 620;
     return (
         <Container className="sidebar">
             <Row>
-                <Col>
-                    <ul className="list-unstyled">
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="mix-mash">Mix Mash</Link>
-                        </li>
-                        <li>
-                            <Link to="account">Account</Link>
-                        </li>
-                        <li>
-                            <Link to="about">About</Link>
-                        </li>
-                        <li>
-                            <Link to="links">Links</Link>
-                        </li>
-                    </ul>
-                </Col>
+                <img className="mt-3 mb-4" src={tempLogo} />
             </Row>
-            <img className="sidebar-mash" src={tempMash} />
+            <Row>
+                <SidebarLinks />
+            </Row>
+            <img className="sidebar-mash" src={tempMash} style={ viewHeight < breakpoint ? { display: 'none' } : { display: 'block'}}/>
         </Container>
     );
 };
