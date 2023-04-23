@@ -87,7 +87,7 @@ const SpotifySearchBar = () => {
 
     return (
         <Container>
-            <Row>
+            <Row className="ml-3">
                 <Card className="mt-4">
                     <InputGroup className="my-3" size="lg">
                         <Input
@@ -117,7 +117,6 @@ const SpotifySearchBar = () => {
                         </Card>
                     );
                 })}
-
             </Row>
         </Container>
     );
