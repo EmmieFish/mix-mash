@@ -2,6 +2,7 @@ import { Col, Row, Container, Card, CardImg, CardImgOverlay, CardTitle, CardBody
 import tempMix from "../app/assets/images/tempMix.png"
 import tempMash from "../app/assets/images/tempMash.png";
 import tempDJset from "../app/assets/images/tempDJset.jpg";
+import SpotifySearchBar from "../features/search/SpotifySearchBar";
 
 
 //standin code
@@ -24,6 +25,9 @@ const MixMashAppPage = () => {
                 <Col xs="2">
                     <img className="homeMashMascot" src={tempMash} />
                 </Col>
+            </Row>
+            <Row>
+                <SpotifySearchBar />
             </Row>
         </Container>
     );
