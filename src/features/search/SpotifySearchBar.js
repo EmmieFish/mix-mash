@@ -66,26 +66,20 @@ const SpotifySearchBar = () => {
         )
             .then((response) => response.json())
             // .then((data) => {
-            //     if (searchType === "artist") {
+            //     (searchType === "artist") ?
             //         setArtists(data.artists.items)
-            //     } else {
+            //     :
             //         setTracks(data.tracks.items)
-            //     }
+                
             // });
             .then((data) => {
                 searchType === "artist"
                     ? console.log(data.artists.items)
                     : console.log(data.tracks.items);
             });
-        // .then((data) => {
-        //     return searchType === "artist"
-        //         ? data.artist.items
-        //         : data.tracks.items;
-        // });
-        // .then((data) => {return data});
-        // .then((data) => {
-        //     searchType === "artist" ? setArtists(data.items) : setTracks(data.items);
-        // });
+
+
+
 
         // searchType === "artist"
         //     ? console.log("Artist are: ", artists)
@@ -93,22 +87,7 @@ const SpotifySearchBar = () => {
 
         // console.log(searchArray);
 
-        // console.log("Searching for an " + searchType + " with an ID of " + searchID);
 
-        //Get request with Artist ID grab all the albums from that artist
-
-        // let returnedAlbums = await fetch(
-        //     "https://api.spotify.com/v1/artists/" +
-        //         artistID +
-        //         "/albums" +
-        //         "?include_groups=album&market=US&limit=50",
-        //     searchParameters
-        // )
-        //     .then((response) => response.json())
-        //     .then((data) => {
-        //         console.log(data);
-        //         setAlbums(data.items);
-        //     });
 
         // let returnedSearch = await fetch(
         //     "https://api.spotify.com/v1/artists/" +
@@ -196,3 +175,33 @@ const SpotifySearchBar = () => {
 };
 
 export default SpotifySearchBar;
+
+
+
+
+        // .then((data) => {
+        //     return searchType === "artist"
+        //         ? data.artist.items
+        //         : data.tracks.items;
+        // });
+        // .then((data) => {return data});
+        // .then((data) => {
+        //     searchType === "artist" ? setArtists(data.items) : setTracks(data.items);
+        // });
+
+                // console.log("Searching for an " + searchType + " with an ID of " + searchID);
+
+        //Get request with Artist ID grab all the albums from that artist
+
+        // let returnedAlbums = await fetch(
+        //     "https://api.spotify.com/v1/artists/" +
+        //         artistID +
+        //         "/albums" +
+        //         "?include_groups=album&market=US&limit=50",
+        //     searchParameters
+        // )
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         console.log(data);
+        //         setAlbums(data.items);
+        //     });
