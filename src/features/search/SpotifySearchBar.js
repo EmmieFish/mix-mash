@@ -9,6 +9,7 @@ import {
     CardTitle,
     Input,
     Container,
+    Col
 } from "reactstrap";
 import { useState, useEffect } from "react";
 
@@ -18,7 +19,9 @@ const CLIENT_SECRET = "05b5b6f7df87494482a58fbe8ccefe0f";
 const SpotifySearchBar = () => {
     const [searchInput, setSearchInput] = useState("");
     const [accessToken, setAccessToken] = useState("");
-    const [albums, setAlbums] = useState([]);
+    const [tracks, setTracks] = useState([]);
+    const [artists, setArtists] = useState([]);
+    const [searchType, setSearchType] = useState("artist");
 
     useEffect(() => {
         // API Access Token
@@ -42,7 +45,7 @@ const SpotifySearchBar = () => {
     // Search
 
     async function search() {
-        console.log("Search for " + searchInput);
+        console.log("Searching for " + searchInput);
 
         //Get request using search to get the Artist ID
         let searchParameters = {
@@ -53,71 +56,141 @@ const SpotifySearchBar = () => {
             },
         };
 
-        let artistID = await fetch(
+        let searchArray = await fetch(
             "https://api.spotify.com/v1/search?q=" +
                 searchInput +
-                "&type=artist",
+                "&type=" +
+                searchType +
+                "&limit=15",
             searchParameters
         )
             .then((response) => response.json())
+            // .then((data) => {
+            //     if (searchType === "artist") {
+            //         setArtists(data.artists.items)
+            //     } else {
+            //         setTracks(data.tracks.items)
+            //     }
+            // });
             .then((data) => {
-                return data.artists.items[0].id;
+                searchType === "artist"
+                    ? console.log(data.artists.items)
+                    : console.log(data.tracks.items);
             });
+        // .then((data) => {
+        //     return searchType === "artist"
+        //         ? data.artist.items
+        //         : data.tracks.items;
+        // });
+        // .then((data) => {return data});
+        // .then((data) => {
+        //     searchType === "artist" ? setArtists(data.items) : setTracks(data.items);
+        // });
 
-        console.log("Artist ID is " + artistID);
+        // searchType === "artist"
+        //     ? console.log("Artist are: ", artists)
+        //     : console.log("Tracks are: ", tracks)
+
+        // console.log(searchArray);
+
+        // console.log("Searching for an " + searchType + " with an ID of " + searchID);
 
         //Get request with Artist ID grab all the albums from that artist
 
-        let returnedAlbums = await fetch(
-            "https://api.spotify.com/v1/artists/" +
-                artistID +
-                "/albums" +
-                "?include_groups=album&market=US&limit=50",
-            searchParameters
-        )
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            setAlbums(data.items);
-        });
+        // let returnedAlbums = await fetch(
+        //     "https://api.spotify.com/v1/artists/" +
+        //         artistID +
+        //         "/albums" +
+        //         "?include_groups=album&market=US&limit=50",
+        //     searchParameters
+        // )
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         console.log(data);
+        //         setAlbums(data.items);
+        //     });
+
+        // let returnedSearch = await fetch(
+        //     "https://api.spotify.com/v1/artists/" +
+        //         artistID +
+        //         "/albums" +
+        //         "?include_groups=album&market=US&limit=50",
+        //     searchParameters
+        // )
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         setAlbums(data.items);
+        //     });
 
         //Display those albums to the user
     }
-
 
     return (
         <Container>
             <Row className="ml-3">
                 <Card className="mt-4">
-                    <InputGroup className="my-3" size="lg">
-                        <Input
-                            placeholder="Search for an [Artist] or [Song]"
-                            type="input"
-                            onKeyPress={(event) => {
-                                if (event.key == "Enter") {
-                                    search();
+                    <InputGroup className="my-3">
+                        <Col className="col-8">
+                            <Input
+                                placeholder="Search for an [Artist] or [Song]"
+                                type="input"
+                                onKeyPress={(event) => {
+                                    if (searchType && event.key == "Enter") {
+                                        search();
+                                    }
+                                }}
+                                onChange={(event) =>
+                                    setSearchInput(event.target.value)
                                 }
-                            }}
-                            onChange={(event) =>
-                                setSearchInput(event.target.value)
-                            }
-                        />
-                        <Button onClick={search}>Search</Button>
+                            />
+                        </Col>
+                        <Col className="col-2">
+                            <Input
+                                id="searchTypeSelect"
+                                name="searchTypeSelect"
+                                type="select"
+                                onChange={(event) =>
+                                    setSearchType(event.target.value)
+                                }
+                            >
+                                <option value={"artist"}>Artist</option>
+                                <option value={"track"}>Song</option>
+                            </Input>
+                        </Col>
+                        <Col className="col-1">
+                            <Button onClick={search}>Search</Button>
+                        </Col>
                     </InputGroup>
                 </Card>
             </Row>
-            <Row className="row">
-                {albums.map((album, idx) => {
-                    return (
-                        <Card className="mt-1 col-3">
-                            <CardImg src={album.images[0].url} />
-                            <CardBody>
-                                <CardTitle>{album.name}</CardTitle>
-                            </CardBody>
-                        </Card>
-                    );
-                })}
-            </Row>
+            {/* {searchType === "track" && (
+                <Row className="row">
+                    {tracks.map((track) => {
+                        return (
+                            <Card className="mt-1 col-3">
+                                <CardImg src={track.images[0].url} />
+                                <CardBody>
+                                    <CardTitle>{track.name}</CardTitle>
+                                </CardBody>
+                            </Card>
+                        );
+                    })}
+                </Row>
+            )} */}
+            {/* {searchType === "artist" && (
+                <Row className="row">
+                    {artists.map((artist) => {
+                        return (
+                            <Card className="mt-1 col-3">
+                                <CardImg src={artist.images[0].url} />
+                                <CardBody>
+                                    <CardTitle>{artist.name}</CardTitle>
+                                </CardBody>
+                            </Card>
+                        );
+                    })}
+                </Row>
+            )} */}
         </Container>
     );
 };
