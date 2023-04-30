@@ -142,12 +142,12 @@ const SpotifySearchBar = () => {
                     </InputGroup>
                 </Card>
             </Row>
-            {/* {searchType === "track" && (
+            {searchType === "track" && (
                 <Row className="row">
                     {tracks.map((track) => {
                         return (
                             <Card className="mt-1 col-3">
-                                <CardImg src={track.images[0].url} />
+                                {/* <CardImg src={track.images[0].url} /> */}
                                 <CardBody>
                                     <CardTitle>{track.name}</CardTitle>
                                 </CardBody>
@@ -155,13 +155,13 @@ const SpotifySearchBar = () => {
                         );
                     })}
                 </Row>
-            )} */}
-            {/* {searchType === "artist" && (
+            )}
+            {searchType === "artist" && (
                 <Row className="row">
                     {artists.map((artist) => {
                         return (
                             <Card className="mt-1 col-3">
-                                <CardImg src={artist.images[0].url} />
+                                {/* <CardImg src={artist.images[0].url} /> */}
                                 <CardBody>
                                     <CardTitle>{artist.name}</CardTitle>
                                 </CardBody>
@@ -169,7 +169,7 @@ const SpotifySearchBar = () => {
                         );
                     })}
                 </Row>
-            )} */}
+            )}
         </Container>
     );
 };
