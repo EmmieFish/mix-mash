@@ -65,18 +65,18 @@ const SpotifySearchBar = () => {
             searchParameters
         )
             .then((response) => response.json())
-            // .then((data) => {
-            //     (searchType === "artist") ?
-            //         setArtists(data.artists.items)
-            //     :
-            //         setTracks(data.tracks.items)
-                
-            // });
             .then((data) => {
-                searchType === "artist"
-                    ? console.log(data.artists.items)
-                    : console.log(data.tracks.items);
+                searchType === "artist" ?
+                    setArtists(data.artists.items)
+                :
+                    setTracks(data.tracks.items)
+                
             });
+            // .then((data) => {
+            //     searchType === "artist"
+            //         ? console.log(data.artists.items)
+            //         : console.log(data.tracks.items);
+            // });
 
 
 
