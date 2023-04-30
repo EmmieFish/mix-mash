@@ -146,7 +146,9 @@ const SpotifySearchBar = () => {
                 <Row className="row">
                     {tracks.map((track) => {
                         return (
-                            <Card className="mt-1 col-3">
+                            <Card className="mt-1 col-3" key={track.id}>
+                                <CardImg src={'https://plc.s6img.com/society6/img/DJj2C6GFf4LXBG-63E9pIvTMoTE/w_1500/prints/~artwork/s6-original-art-uploads/society6/uploads/misc/5653cd36be88468b8387ee851c6e5cc0/~~/buff-cat-meme-prints.jpg'
+} />
                                 {/* <CardImg src={track.images[0].url} /> */}
                                 <CardBody>
                                     <CardTitle>{track.name}</CardTitle>
@@ -160,7 +162,12 @@ const SpotifySearchBar = () => {
                 <Row className="row">
                     {artists.map((artist) => {
                         return (
-                            <Card className="mt-1 col-3">
+                            <Card className="mt-1 col-3" key={artist.id}>
+                                <CardImg
+                                    src={
+                                        "https://plc.s6img.com/society6/img/DJj2C6GFf4LXBG-63E9pIvTMoTE/w_1500/prints/~artwork/s6-original-art-uploads/society6/uploads/misc/5653cd36be88468b8387ee851c6e5cc0/~~/buff-cat-meme-prints.jpg"
+                                    }
+                                />
                                 {/* <CardImg src={artist.images[0].url} /> */}
                                 <CardBody>
                                     <CardTitle>{artist.name}</CardTitle>
