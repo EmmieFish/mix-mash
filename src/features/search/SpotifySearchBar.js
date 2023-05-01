@@ -61,7 +61,7 @@ const SpotifySearchBar = () => {
                 searchInput +
                 "&type=" +
                 searchType +
-                "&limit=15",
+                "&limit=16",
             searchParameters
         )
             .then((response) => response.json())
