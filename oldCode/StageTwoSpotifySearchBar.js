@@ -72,6 +72,34 @@ const SpotifySearchBar = () => {
                     setTracks(data.tracks.items)
                 
             });
+            // .then((data) => {
+            //     searchType === "artist"
+            //         ? console.log(data.artists.items)
+            //         : console.log(data.tracks.items);
+            // });
+
+
+
+
+        // searchType === "artist"
+        //     ? console.log("Artist are: ", artists)
+        //     : console.log("Tracks are: ", tracks)
+
+        // console.log(searchArray);
+
+
+
+        // let returnedSearch = await fetch(
+        //     "https://api.spotify.com/v1/artists/" +
+        //         artistID +
+        //         "/albums" +
+        //         "?include_groups=album&market=US&limit=50",
+        //     searchParameters
+        // )
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         setAlbums(data.items);
+        //     });
 
 
     }
@@ -119,6 +147,9 @@ const SpotifySearchBar = () => {
                     {tracks.map((track) => {
                         return (
                             <Card className="mt-1 col-3" key={track.id}>
+                                <CardImg src={'https://plc.s6img.com/society6/img/DJj2C6GFf4LXBG-63E9pIvTMoTE/w_1500/prints/~artwork/s6-original-art-uploads/society6/uploads/misc/5653cd36be88468b8387ee851c6e5cc0/~~/buff-cat-meme-prints.jpg'
+} />
+                                {/* <CardImg src={track.images[0].url} /> */}
                                 <CardBody>
                                     <CardTitle>{track.name}</CardTitle>
                                 </CardBody>
@@ -132,6 +163,12 @@ const SpotifySearchBar = () => {
                     {artists.map((artist) => {
                         return (
                             <Card className="mt-1 col-3" key={artist.id}>
+                                <CardImg
+                                    src={
+                                        "https://plc.s6img.com/society6/img/DJj2C6GFf4LXBG-63E9pIvTMoTE/w_1500/prints/~artwork/s6-original-art-uploads/society6/uploads/misc/5653cd36be88468b8387ee851c6e5cc0/~~/buff-cat-meme-prints.jpg"
+                                    }
+                                />
+                                {/* <CardImg src={artist.images[0].url} /> */}
                                 <CardBody>
                                     <CardTitle>{artist.name}</CardTitle>
                                 </CardBody>
@@ -148,3 +185,30 @@ export default SpotifySearchBar;
 
 
 
+
+        // .then((data) => {
+        //     return searchType === "artist"
+        //         ? data.artist.items
+        //         : data.tracks.items;
+        // });
+        // .then((data) => {return data});
+        // .then((data) => {
+        //     searchType === "artist" ? setArtists(data.items) : setTracks(data.items);
+        // });
+
+                // console.log("Searching for an " + searchType + " with an ID of " + searchID);
+
+        //Get request with Artist ID grab all the albums from that artist
+
+        // let returnedAlbums = await fetch(
+        //     "https://api.spotify.com/v1/artists/" +
+        //         artistID +
+        //         "/albums" +
+        //         "?include_groups=album&market=US&limit=50",
+        //     searchParameters
+        // )
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         console.log(data);
+        //         setAlbums(data.items);
+        //     });
