@@ -12,9 +12,9 @@ import {
     Col
 } from "reactstrap";
 import { useState, useEffect } from "react";
+import { CLIENT_ID, CLIENT_SECRET } from "../../utils/clientIdAndSecret";
 
-const CLIENT_ID = "7db8f3e34e8c49aa9f54a64a15246022";
-const CLIENT_SECRET = "05b5b6f7df87494482a58fbe8ccefe0f";
+
 
 const SpotifySearchBar = () => {
     const [searchInput, setSearchInput] = useState("");
